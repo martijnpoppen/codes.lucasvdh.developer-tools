@@ -44,5 +44,9 @@
     "help": {
       "click_here_documentation": "View the documentation."
     }
+  },
+  "overview": {
+    "device_name": "App overview",
+    "no_token": "The Personal Access Token of this account was removed. Add it again in the app settings."
   }
 }

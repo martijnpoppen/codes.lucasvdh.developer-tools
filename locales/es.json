@@ -30,5 +30,9 @@
   },
   "errors": {
     "missing_personal_access_token": "Aún no se ha configurado un Personal Access Token. Abre la configuración de la app para añadir uno."
+  },
+  "overview": {
+    "device_name": "Resumen de apps",
+    "no_token": "Se ha eliminado el Personal Access Token de esta cuenta. Vuelve a añadirlo en los ajustes de la app."
   }
 }

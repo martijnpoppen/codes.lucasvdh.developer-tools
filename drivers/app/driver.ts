@@ -338,6 +338,8 @@ class AppDriver extends Driver {
         }
       }
 
+      this.notifyOverviewDevices(appsByPatId);
+
       await this.processApps(appsByPatId, allApps);
     } catch (error) {
       this.error(error);
@@ -367,6 +369,16 @@ class AppDriver extends Driver {
 
     this.runGlobalTriggers(allApps);
     this.runGlobalTriggersWithApps(allApps, extrasMap);
+  }
+
+  // The App overview devices use the same app lists, so they need no API calls of their own.
+  private notifyOverviewDevices(appsByPatId: Map<string, AppData[]>): void {
+    try {
+      const overviewDriver = this.homey.drivers.getDriver('overview') as any;
+      overviewDriver.onAppsUpdated(appsByPatId).catch((e: Error) => this.error(e));
+    } catch (e) {
+      this.error(e);
+    }
   }
 
   private static ownerLabelFor(entry: PatEntry): string {

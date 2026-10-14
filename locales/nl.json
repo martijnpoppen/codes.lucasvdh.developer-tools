@@ -44,5 +44,9 @@
     "help": {
       "click_here_documentation": "Bekijk de documentatie."
     }
+  },
+  "overview": {
+    "device_name": "App-overzicht",
+    "no_token": "De Personal Access Token van dit account is verwijderd. Voeg hem opnieuw toe in de app-instellingen."
   }
 }

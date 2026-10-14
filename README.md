@@ -2,6 +2,8 @@
 
 A Homey app that turns each of your published Homey apps into a virtual device, exposing live statistics (installs, version numbers, build state, crashes) as capabilities and flow tokens.
 
+For developers with several apps there is also an App overview device per account, with the total installs, the installs of every app and Flow triggers for any app whose installs go up or down.
+
 This is an independent community app. It is not affiliated with or endorsed by Athom.
 
 ## Documentation

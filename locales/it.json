@@ -30,5 +30,9 @@
   },
   "errors": {
     "missing_personal_access_token": "Non è ancora stato configurato alcun Personal Access Token. Apri le impostazioni dell'app per aggiungerne uno."
+  },
+  "overview": {
+    "device_name": "Panoramica app",
+    "no_token": "Il Personal Access Token di questo account è stato rimosso. Aggiungilo di nuovo nelle impostazioni dell'app."
   }
 }
