@@ -33,6 +33,15 @@
   },
   "overview": {
     "device_name": "Przegląd aplikacji",
-    "no_token": "Personal Access Token tego konta został usunięty. Dodaj go ponownie w ustawieniach aplikacji."
+    "no_token": "Personal Access Token tego konta został usunięty. Dodaj go ponownie w ustawieniach aplikacji.",
+    "loading": "Ładowanie kont…",
+    "own_apps": "Twoje własne aplikacje są zawsze uwzględniane.",
+    "organizations": "Uwzględnij organizacje",
+    "no_organizations": "To konto nie należy do żadnej Developer Organization.",
+    "add": "Dodaj",
+    "repair_title": "Wybierz organizacje",
+    "repair_intro": "Wybierz Developer Organizations, których aplikacje obejmuje ten przegląd.",
+    "save": "Zapisz",
+    "pair_intro": "Wybierz dla każdego konta, które Developer Organizations obejmuje jego przegląd."
   }
 }

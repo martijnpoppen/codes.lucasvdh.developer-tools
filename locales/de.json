@@ -33,6 +33,15 @@
   },
   "overview": {
     "device_name": "App-Übersicht",
-    "no_token": "Das Personal Access Token dieses Kontos wurde entfernt. Füge es in den App-Einstellungen erneut hinzu."
+    "no_token": "Das Personal Access Token dieses Kontos wurde entfernt. Füge es in den App-Einstellungen erneut hinzu.",
+    "loading": "Konten werden geladen…",
+    "own_apps": "Ihre eigenen Apps sind immer enthalten.",
+    "organizations": "Organisationen einbeziehen",
+    "no_organizations": "Dieses Konto ist in keiner Developer Organization Mitglied.",
+    "add": "Hinzufügen",
+    "repair_title": "Organisationen auswählen",
+    "repair_intro": "Wählen Sie die Developer Organizations, deren Apps diese Übersicht enthält.",
+    "save": "Speichern",
+    "pair_intro": "Wählen Sie für jedes Konto, welche Developer Organizations die Übersicht einbezieht."
   }
 }

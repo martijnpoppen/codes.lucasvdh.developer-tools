@@ -352,6 +352,8 @@ class AppDriver extends Driver {
       appsByPatId: Map<string, AppData[]>,
       allApps: AppData[],
   ): Promise<void> {
+    await this.assignTokens(appsByPatId);
+
     const extrasMap = new Map<string, AppExtras>();
     const patEntries = this.getPatStore().list();
     const ownerLabelByPatId = new Map<string, string>(
@@ -412,15 +414,40 @@ class AppDriver extends Driver {
       this.error(e);
     }
 
-    if (ownerLabel && device.hasCapability('app_owner')) {
+    // Apps of a Developer Organization show the organization as owner.
+    const owner = appData.organization?.name ?? ownerLabel;
+    if (owner && device.hasCapability('app_owner')) {
       try {
-        await device.setCapabilityValue('app_owner', ownerLabel);
+        await device.setCapabilityValue('app_owner', owner);
       } catch (e) {
         this.error(e);
       }
     }
 
     return extras;
+  }
+
+  /**
+   * Pairing used to pass pat_id under `storage`, which Homey ignores, so
+   * every device got the first token on the next start. A device whose token
+   * can't see its app moves to a token that can (e.g. an organization only
+   * one of the accounts belongs to).
+   */
+  private async assignTokens(appsByPatId: Map<string, AppData[]>): Promise<void> {
+    for (const device of this.getDevices()) {
+      const appId = device.getData().id;
+      const patId = device.getStoreValue('pat_id');
+      if (appsByPatId.get(patId)?.some((app) => app.id === appId)) continue;
+
+      const match = Array.from(appsByPatId.entries()).find(([, apps]) => apps.some((app) => app.id === appId));
+      if (!match) continue;
+      try {
+        await device.setStoreValue('pat_id', match[0]);
+        this.log(`Linked ${appId} to the token that can see it`);
+      } catch (e) {
+        this.error(e);
+      }
+    }
   }
 
   private async fetchAppExtras(patId: string, appData: AppData): Promise<AppExtras> {
@@ -651,7 +678,7 @@ class AppDriver extends Driver {
           devices.push({
             name: appData.liveBuild?.name?.en ?? appData.testBuild?.name?.en ?? 'App name',
             data: {id: appData.id},
-            storage: {id: appData.id, pat_id: result.value.patId},
+            store: {id: appData.id, pat_id: result.value.patId},
           });
         }
       }

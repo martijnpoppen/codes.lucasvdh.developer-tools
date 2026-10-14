@@ -33,6 +33,15 @@
   },
   "overview": {
     "device_name": "App-oversigt",
-    "no_token": "Personal Access Token for denne konto er blevet fjernet. Tilføj den igen i appindstillingerne."
+    "no_token": "Personal Access Token for denne konto er blevet fjernet. Tilføj den igen i appindstillingerne.",
+    "loading": "Indlæser konti…",
+    "own_apps": "Dine egne apps er altid med.",
+    "organizations": "Medtag organisationer",
+    "no_organizations": "Denne konto er ikke medlem af nogen Developer Organization.",
+    "add": "Tilføj",
+    "repair_title": "Vælg organisationer",
+    "repair_intro": "Vælg de Developer Organizations, hvis apps er med i denne oversigt.",
+    "save": "Gem",
+    "pair_intro": "Vælg for hver konto, hvilke Developer Organizations der er med i oversigten."
   }
 }

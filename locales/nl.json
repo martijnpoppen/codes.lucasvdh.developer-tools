@@ -47,6 +47,15 @@
   },
   "overview": {
     "device_name": "App-overzicht",
-    "no_token": "De Personal Access Token van dit account is verwijderd. Voeg hem opnieuw toe in de app-instellingen."
+    "no_token": "De Personal Access Token van dit account is verwijderd. Voeg hem opnieuw toe in de app-instellingen.",
+    "loading": "Accounts laden…",
+    "own_apps": "Je eigen apps zitten er altijd in.",
+    "organizations": "Organisaties meenemen",
+    "no_organizations": "Dit account is geen lid van een Developer Organization.",
+    "add": "Toevoegen",
+    "repair_title": "Organisaties kiezen",
+    "repair_intro": "Kies de Developer Organizations waarvan de apps in dit overzicht zitten.",
+    "save": "Opslaan",
+    "pair_intro": "Kies per account welke Developer Organizations in het overzicht komen."
   }
 }

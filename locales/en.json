@@ -47,6 +47,15 @@
   },
   "overview": {
     "device_name": "App overview",
-    "no_token": "The Personal Access Token of this account was removed. Add it again in the app settings."
+    "no_token": "The Personal Access Token of this account was removed. Add it again in the app settings.",
+    "loading": "Loading accounts…",
+    "own_apps": "Your own apps are always included.",
+    "organizations": "Include organizations",
+    "no_organizations": "This account is not a member of any Developer Organization.",
+    "add": "Add",
+    "repair_title": "Choose organizations",
+    "repair_intro": "Choose the Developer Organizations whose apps this overview includes.",
+    "save": "Save",
+    "pair_intro": "Choose for each account which Developer Organizations its overview includes."
   }
 }

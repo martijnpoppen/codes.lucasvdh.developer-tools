@@ -66,9 +66,32 @@ class OverviewDevice extends Device {
     return appData.liveBuild?.name?.en ?? appData.testBuild?.name?.en ?? appData.id;
   }
 
+  /**
+   * The Developer Organizations whose apps this device counts on top of the
+   * account's own apps. Devices paired before this choice existed have none
+   * stored and keep counting every app of their token.
+   */
+  getOrganizationIds(): string[] | undefined {
+    const ids = this.getStoreValue('organization_ids');
+    return Array.isArray(ids) ? ids : undefined;
+  }
+
+  async setOrganizationIds(organizationIds: string[]): Promise<void> {
+    await this.setStoreValue('organization_ids', organizationIds);
+    const patId = this.resolvePatId();
+    const apps = patId ? await (this.driver as any).getApps(patId) : undefined;
+    if (apps) await this.updateApps(apps);
+  }
+
+  private inScope(appData: AppData): boolean {
+    const organizationIds = this.getOrganizationIds();
+    if (!organizationIds || !appData.organization) return true;
+    return organizationIds.includes(appData.organization.id);
+  }
+
   async updateApps(appsData: AppData[]): Promise<void> {
     const apps: OverviewApp[] = appsData
-        .filter((appData) => appData && appData.id && !appData.deleted)
+        .filter((appData) => appData && appData.id && !appData.deleted && this.inScope(appData))
         .map((appData) => ({
           id: appData.id,
           name: OverviewDevice.appName(appData),

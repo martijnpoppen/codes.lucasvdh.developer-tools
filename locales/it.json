@@ -33,6 +33,15 @@
   },
   "overview": {
     "device_name": "Panoramica app",
-    "no_token": "Il Personal Access Token di questo account è stato rimosso. Aggiungilo di nuovo nelle impostazioni dell'app."
+    "no_token": "Il Personal Access Token di questo account è stato rimosso. Aggiungilo di nuovo nelle impostazioni dell'app.",
+    "loading": "Caricamento account…",
+    "own_apps": "Le tue app sono sempre incluse.",
+    "organizations": "Includi organizzazioni",
+    "no_organizations": "Questo account non fa parte di nessuna Developer Organization.",
+    "add": "Aggiungi",
+    "repair_title": "Scegli le organizzazioni",
+    "repair_intro": "Scegli le Developer Organizations le cui app sono incluse in questa panoramica.",
+    "save": "Salva",
+    "pair_intro": "Scegli per ogni account quali Developer Organizations includere nella panoramica."
   }
 }

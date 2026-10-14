@@ -29,12 +29,11 @@
       "id": "list_devices",
       "template": "list_devices",
       "navigation": {
-        "next": "add_devices"
+        "next": "select_organizations"
       }
     },
     {
-      "id": "add_devices",
-      "template": "add_devices"
+      "id": "select_organizations"
     }
   ],
   "images": {
@@ -90,5 +89,10 @@
         "pl": "Całkowita liczba lokalnych instalacji"
       }
     }
-  }
+  },
+  "repair": [
+    {
+      "id": "select_organizations"
+    }
+  ]
 }

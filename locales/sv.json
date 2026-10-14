@@ -33,6 +33,15 @@
   },
   "overview": {
     "device_name": "Appöversikt",
-    "no_token": "Personal Access Token för det här kontot har tagits bort. Lägg till den igen i appinställningarna."
+    "no_token": "Personal Access Token för det här kontot har tagits bort. Lägg till den igen i appinställningarna.",
+    "loading": "Laddar konton…",
+    "own_apps": "Dina egna appar ingår alltid.",
+    "organizations": "Ta med organisationer",
+    "no_organizations": "Det här kontot är inte medlem i någon Developer Organization.",
+    "add": "Lägg till",
+    "repair_title": "Välj organisationer",
+    "repair_intro": "Välj de Developer Organizations vars appar ingår i den här översikten.",
+    "save": "Spara",
+    "pair_intro": "Välj för varje konto vilka Developer Organizations som ingår i översikten."
   }
 }

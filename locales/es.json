@@ -33,6 +33,15 @@
   },
   "overview": {
     "device_name": "Resumen de apps",
-    "no_token": "Se ha eliminado el Personal Access Token de esta cuenta. Vuelve a añadirlo en los ajustes de la app."
+    "no_token": "Se ha eliminado el Personal Access Token de esta cuenta. Vuelve a añadirlo en los ajustes de la app.",
+    "loading": "Cargando cuentas…",
+    "own_apps": "Tus propias apps siempre se incluyen.",
+    "organizations": "Incluir organizaciones",
+    "no_organizations": "Esta cuenta no es miembro de ninguna Developer Organization.",
+    "add": "Añadir",
+    "repair_title": "Elegir organizaciones",
+    "repair_intro": "Elige las Developer Organizations cuyas apps incluye este resumen.",
+    "save": "Guardar",
+    "pair_intro": "Elige para cada cuenta qué Developer Organizations incluye su resumen."
   }
 }

@@ -22,6 +22,19 @@ export interface AppData {
   id: string;
   testBuildUpdatedAt?: string;
   liveBuildUpdatedAt?: string;
+  // Set by getApps for apps that belong to a Developer Organization.
+  organization?: OrganizationRef;
+}
+
+export interface OrganizationRef {
+  id: string;
+  name: string;
+}
+
+interface OrganizationData {
+  id: string;
+  name?: string;
+  apps?: Array<string | Partial<AppData>>;
 }
 
 interface BuildData {
@@ -128,8 +141,62 @@ export class AthomApi {
     this.delegatedJWTExpiresAt = undefined;
   }
 
+  /**
+   * The apps of the account itself plus the apps of every Developer
+   * Organization the account belongs to. An organization that can't be
+   * loaded is skipped, so it never hides the account's own apps.
+   */
   public async getApps(): Promise<AppData[]> {
-    return JSON.parse(await this.authedGet('/api/v1/app/me')) as AppData[];
+    const ownApps = JSON.parse(await this.authedGet('/api/v1/app/me')) as AppData[];
+    const apps = new Map<string, AppData>(ownApps.map((app) => [app.id, app]));
+
+    let organizations: OrganizationData[] = [];
+    try {
+      organizations = await this.getOrganizations();
+    } catch {
+      return ownApps;
+    }
+
+    for (const organization of organizations) {
+      try {
+        for (const app of await this.getOrganizationApps(organization.id, new Set(apps.keys()))) {
+          apps.set(app.id, app);
+        }
+      } catch {
+        // Skip this organization; the others and the account's own apps still load.
+      }
+    }
+
+    return Array.from(apps.values());
+  }
+
+  public async getOrganizations(): Promise<OrganizationData[]> {
+    const organizations = JSON.parse(await this.authedGet('/api/v1/org')) as OrganizationData[];
+    return Array.isArray(organizations) ? organizations : [];
+  }
+
+  private async getOrganizationApps(organizationId: string, knownAppIds: Set<string>): Promise<AppData[]> {
+    const organization = JSON.parse(
+        await this.authedGet(`/api/v1/org/${encodeURIComponent(organizationId)}`),
+    ) as OrganizationData;
+    const ref: OrganizationRef = {id: organization.id ?? organizationId, name: organization.name ?? organizationId};
+
+    const apps: AppData[] = [];
+    for (const entry of Array.isArray(organization.apps) ? organization.apps : []) {
+      const appId = typeof entry === 'string' ? entry : entry?.id;
+      if (!appId || knownAppIds.has(appId)) continue;
+
+      // The organization lists either full app objects or only their ids.
+      try {
+        const app = typeof entry === 'object' && typeof entry.installs === 'number'
+            ? entry as AppData
+            : JSON.parse(await this.authedGet(`/api/v1/app/${encodeURIComponent(appId)}`)) as AppData;
+        apps.push({...app, organization: ref});
+      } catch {
+        // Skip this app; the other apps of the organization still load.
+      }
+    }
+    return apps;
   }
 
   public async getUserInfo(): Promise<UserInfo> {
