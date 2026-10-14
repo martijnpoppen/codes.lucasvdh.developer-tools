@@ -44,7 +44,8 @@
   "capabilities": [
     "installs",
     "installs_cloud",
-    "installs_local"
+    "installs_local",
+    "app_count"
   ],
   "capabilitiesOptions": {
     "installs": {

@@ -43,5 +43,15 @@
     "repair_intro": "Vælg de Developer Organizations, hvis apps er med i denne oversigt.",
     "save": "Gem",
     "pair_intro": "Vælg for hver konto, hvilke Developer Organizations der er med i oversigten."
+  },
+  "widgets": {
+    "device_description": "{{apps}} apps · {{installs}} installationer · {{devices}} enheder",
+    "app_description": "{{installs}} installationer · {{devices}} enheder · {{version}}",
+    "no_live_version": "ingen liveversion",
+    "select_device": "Vælg en App-oversigt-enhed i widgetindstillingerne.",
+    "select_app": "Vælg en app i widgetindstillingerne.",
+    "device_gone": "Den valgte App-oversigt-enhed findes ikke længere.",
+    "app_gone": "Den valgte app er ikke i denne App-oversigt. Vælg en app igen i widgetindstillingerne.",
+    "no_overview": "Tilføj først en App-oversigt-enhed."
   }
 }

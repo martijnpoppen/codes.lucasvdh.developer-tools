@@ -57,5 +57,15 @@
     "repair_intro": "Choose the Developer Organizations whose apps this overview includes.",
     "save": "Save",
     "pair_intro": "Choose for each account which Developer Organizations its overview includes."
+  },
+  "widgets": {
+    "device_description": "{{apps}} apps · {{installs}} installs · {{devices}} devices",
+    "app_description": "{{installs}} installs · {{devices}} devices · {{version}}",
+    "no_live_version": "no live version",
+    "select_device": "Select an App overview device in the widget settings.",
+    "select_app": "Select an app in the widget settings.",
+    "device_gone": "The selected App overview device no longer exists.",
+    "app_gone": "The selected app is not in this App overview. Select an app again in the widget settings.",
+    "no_overview": "Add an App overview device first."
   }
 }

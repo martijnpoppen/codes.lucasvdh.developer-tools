@@ -4,6 +4,8 @@ App Insights for Developers zamienia każdą z Twoich opublikowanych aplikacji H
 
 Utrzymujesz kilka aplikacji? Dodaj urządzenie Przegląd aplikacji dla każdego konta: jedno urządzenie z łączną liczbą instalacji i instalacjami każdej aplikacji oraz wyzwalacze przepływu dla każdej aplikacji, której liczba instalacji rośnie lub spada. Sam wybierasz, które Developer Organizations zostaną uwzględnione.
 
+Przegląd aplikacji zasila też sześć widżetów pulpitu: Instalacje aplikacji, Trend instalacji, Ostatnie zmiany, Przegląd organizacji, Aplikacja w centrum i Kamienie milowe.
+
 Konfiguracja wymaga Personal Access Tokena z Twojego konta dewelopera Athom. Instrukcje krok po kroku znajdziesz w ustawieniach aplikacji lub w dokumentacji online.
 
 To jest niezależna aplikacja społecznościowa, niezwiązana z Athom.

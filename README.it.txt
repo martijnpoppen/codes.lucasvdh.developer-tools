@@ -4,6 +4,8 @@ App Insights for Developers trasforma ciascuna delle tue app Homey pubblicate in
 
 Gestisci più app? Aggiungi un dispositivo Panoramica app per ogni account: un unico dispositivo con le installazioni totali e quelle di ogni app, più trigger di flow per qualsiasi app le cui installazioni aumentano o diminuiscono. Scegli tu quali Developer Organizations includere.
 
+La Panoramica app alimenta anche sei widget per la dashboard: Installazioni app, Andamento installazioni, Modifiche recenti, Panoramica organizzazioni, App in evidenza e Traguardi.
+
 La configurazione richiede un Personal Access Token del tuo account sviluppatore Athom. Trovi le istruzioni passo passo nelle impostazioni dell'app o nella documentazione online.
 
 Questa è un'app indipendente della community e non è affiliata ad Athom.

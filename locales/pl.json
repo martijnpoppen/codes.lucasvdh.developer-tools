@@ -43,5 +43,15 @@
     "repair_intro": "Wybierz Developer Organizations, których aplikacje obejmuje ten przegląd.",
     "save": "Zapisz",
     "pair_intro": "Wybierz dla każdego konta, które Developer Organizations obejmuje jego przegląd."
+  },
+  "widgets": {
+    "device_description": "{{apps}} aplikacji · {{installs}} instalacji · {{devices}} urządzeń",
+    "app_description": "{{installs}} instalacji · {{devices}} urządzeń · {{version}}",
+    "no_live_version": "brak wersji live",
+    "select_device": "Wybierz urządzenie Przegląd aplikacji w ustawieniach widżetu.",
+    "select_app": "Wybierz aplikację w ustawieniach widżetu.",
+    "device_gone": "Wybrane urządzenie Przegląd aplikacji już nie istnieje.",
+    "app_gone": "Wybrana aplikacja nie należy do tego Przeglądu aplikacji. Wybierz aplikację ponownie w ustawieniach widżetu.",
+    "no_overview": "Najpierw dodaj urządzenie Przegląd aplikacji."
   }
 }

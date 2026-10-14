@@ -43,5 +43,15 @@
     "repair_intro": "Elige las Developer Organizations cuyas apps incluye este resumen.",
     "save": "Guardar",
     "pair_intro": "Elige para cada cuenta qué Developer Organizations incluye su resumen."
+  },
+  "widgets": {
+    "device_description": "{{apps}} apps · {{installs}} instalaciones · {{devices}} dispositivos",
+    "app_description": "{{installs}} instalaciones · {{devices}} dispositivos · {{version}}",
+    "no_live_version": "sin versión live",
+    "select_device": "Selecciona un dispositivo Resumen de apps en los ajustes del widget.",
+    "select_app": "Selecciona una app en los ajustes del widget.",
+    "device_gone": "El dispositivo Resumen de apps seleccionado ya no existe.",
+    "app_gone": "La app seleccionada no está en este Resumen de apps. Vuelve a seleccionar una app en los ajustes del widget.",
+    "no_overview": "Añade primero un dispositivo Resumen de apps."
   }
 }

@@ -43,5 +43,15 @@
     "repair_intro": "Wählen Sie die Developer Organizations, deren Apps diese Übersicht enthält.",
     "save": "Speichern",
     "pair_intro": "Wählen Sie für jedes Konto, welche Developer Organizations die Übersicht einbezieht."
+  },
+  "widgets": {
+    "device_description": "{{apps}} Apps · {{installs}} Installationen · {{devices}} Geräte",
+    "app_description": "{{installs}} Installationen · {{devices}} Geräte · {{version}}",
+    "no_live_version": "keine Live-Version",
+    "select_device": "Wählen Sie in den Widget-Einstellungen ein App-Übersicht-Gerät.",
+    "select_app": "Wählen Sie in den Widget-Einstellungen eine App.",
+    "device_gone": "Das ausgewählte App-Übersicht-Gerät existiert nicht mehr.",
+    "app_gone": "Die ausgewählte App ist nicht in dieser App-Übersicht. Wählen Sie in den Widget-Einstellungen erneut eine App.",
+    "no_overview": "Fügen Sie zuerst ein App-Übersicht-Gerät hinzu."
   }
 }

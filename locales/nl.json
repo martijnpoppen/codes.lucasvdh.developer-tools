@@ -57,5 +57,15 @@
     "repair_intro": "Kies de Developer Organizations waarvan de apps in dit overzicht zitten.",
     "save": "Opslaan",
     "pair_intro": "Kies per account welke Developer Organizations in het overzicht komen."
+  },
+  "widgets": {
+    "device_description": "{{apps}} apps · {{installs}} installaties · {{devices}} apparaten",
+    "app_description": "{{installs}} installaties · {{devices}} apparaten · {{version}}",
+    "no_live_version": "geen live versie",
+    "select_device": "Kies een App-overzicht-apparaat in de widgetinstellingen.",
+    "select_app": "Kies een app in de widgetinstellingen.",
+    "device_gone": "Het gekozen App-overzicht-apparaat bestaat niet meer.",
+    "app_gone": "De gekozen app zit niet in dit App-overzicht. Kies opnieuw een app in de widgetinstellingen.",
+    "no_overview": "Voeg eerst een App-overzicht-apparaat toe."
   }
 }

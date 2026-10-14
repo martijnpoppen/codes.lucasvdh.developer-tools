@@ -43,5 +43,15 @@
     "repair_intro": "Scegli le Developer Organizations le cui app sono incluse in questa panoramica.",
     "save": "Salva",
     "pair_intro": "Scegli per ogni account quali Developer Organizations includere nella panoramica."
+  },
+  "widgets": {
+    "device_description": "{{apps}} app · {{installs}} installazioni · {{devices}} dispositivi",
+    "app_description": "{{installs}} installazioni · {{devices}} dispositivi · {{version}}",
+    "no_live_version": "nessuna versione live",
+    "select_device": "Seleziona un dispositivo Panoramica app nelle impostazioni del widget.",
+    "select_app": "Seleziona un'app nelle impostazioni del widget.",
+    "device_gone": "Il dispositivo Panoramica app selezionato non esiste più.",
+    "app_gone": "L'app selezionata non è in questa Panoramica app. Seleziona di nuovo un'app nelle impostazioni del widget.",
+    "no_overview": "Aggiungi prima un dispositivo Panoramica app."
   }
 }

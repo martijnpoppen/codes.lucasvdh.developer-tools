@@ -43,5 +43,15 @@
     "repair_intro": "Välj de Developer Organizations vars appar ingår i den här översikten.",
     "save": "Spara",
     "pair_intro": "Välj för varje konto vilka Developer Organizations som ingår i översikten."
+  },
+  "widgets": {
+    "device_description": "{{apps}} appar · {{installs}} installationer · {{devices}} enheter",
+    "app_description": "{{installs}} installationer · {{devices}} enheter · {{version}}",
+    "no_live_version": "ingen liveversion",
+    "select_device": "Välj en Appöversikt-enhet i widgetinställningarna.",
+    "select_app": "Välj en app i widgetinställningarna.",
+    "device_gone": "Den valda Appöversikt-enheten finns inte längre.",
+    "app_gone": "Den valda appen finns inte i den här Appöversikten. Välj en app igen i widgetinställningarna.",
+    "no_overview": "Lägg först till en Appöversikt-enhet."
   }
 }

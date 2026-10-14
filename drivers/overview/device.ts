@@ -2,6 +2,7 @@
 
 import {Device} from "homey";
 import {AppData} from "../../lib/AthomApi";
+import WidgetData from "./widget-data";
 
 interface OverviewApp {
   id: string;
@@ -15,9 +16,16 @@ interface OverviewApp {
 const APP_CAPABILITY_PREFIX = 'installs.';
 
 class OverviewDevice extends Device {
+  // Data for the dashboard widgets, kept in the device store.
+  widgetData = new WidgetData(this as any);
 
   async onInit(): Promise<void> {
     this.log('App overview device has been initialized');
+
+    // Added with the widgets; the widgets pick overview devices by this capability.
+    if (!this.hasCapability('app_count')) {
+      await this.addCapability('app_count').catch(this.error);
+    }
 
     // Show data right away instead of waiting for the next poll.
     try {
@@ -90,8 +98,8 @@ class OverviewDevice extends Device {
   }
 
   async updateApps(appsData: AppData[]): Promise<void> {
-    const apps: OverviewApp[] = appsData
-        .filter((appData) => appData && appData.id && !appData.deleted && this.inScope(appData))
+    const scoped = appsData.filter((appData) => appData && appData.id && !appData.deleted && this.inScope(appData));
+    const apps: OverviewApp[] = scoped
         .map((appData) => ({
           id: appData.id,
           name: OverviewDevice.appName(appData),
@@ -125,12 +133,32 @@ class OverviewDevice extends Device {
     await this.setCapabilityValue('installs', apps.reduce((sum, app) => sum + app.installs, 0));
     await this.setCapabilityValue('installs_cloud', apps.reduce((sum, app) => sum + app.cloud, 0));
     await this.setCapabilityValue('installs_local', apps.reduce((sum, app) => sum + app.local, 0));
+    if (this.hasCapability('app_count')) await this.setCapabilityValue('app_count', apps.length);
 
     await this.triggerInstallChanges(apps);
     await this.setStoreValue('apps', apps);
 
     if (!this.getAvailable()) await this.setAvailable();
+
+    try {
+      const driver = this.driver as any;
+      const patId = this.getStoreValue('pat_id');
+      const entry = driver.getPatStore().get(patId);
+      await this.widgetData.update(scoped, driver.getApi(patId), entry ? driver.constructor.ownerLabelFor(entry) : this.getName());
+    } catch (e) {
+      this.error('Updating the widget data failed', e);
+    }
   }
+
+  // Used by the dashboard widgets.
+  getWidgetData() { return this.widgetData.getWidgetData(); }
+  getInstallHistory(rangeMs: number) { return this.widgetData.getInstallHistory(rangeMs); }
+  getAthomTotalHistory(rangeMs: number) { return this.widgetData.getAthomTotalHistory(rangeMs); }
+  getAthomAppInstallHistory(appId: string, rangeMs: number) { return this.widgetData.getAthomAppInstallHistory(appId, rangeMs); }
+  getAppInstallHistory(appId: string, rangeMs: number) { return this.widgetData.getAppInstallHistory(appId, rangeMs); }
+  getTotalGrowth(rangeMs: number) { return this.widgetData.getTotalGrowth(rangeMs); }
+  getAppGrowth(appId: string, rangeMs: number) { return this.widgetData.getAppGrowth(appId, rangeMs); }
+  getRecentChanges(rangeMs: number, limit: number) { return this.widgetData.getRecentChanges(rangeMs, limit); }
 
   /** "App installs increased/decreased" for every app whose installs changed since the last poll. */
   private async triggerInstallChanges(apps: OverviewApp[]): Promise<void> {

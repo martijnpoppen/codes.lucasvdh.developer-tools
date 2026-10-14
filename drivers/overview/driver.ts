@@ -23,6 +23,7 @@ interface AccountChoice {
 
 class OverviewDriver extends Driver {
   private latestAppsByPatId: Map<string, AppData[]> = new Map();
+  private apis: Map<string, AthomApi> = new Map();
   installsIncreasedTrigger?: FlowCardTriggerDevice;
   installsDecreasedTrigger?: FlowCardTriggerDevice;
 
@@ -50,6 +51,20 @@ class OverviewDriver extends Driver {
         this.error(e);
       }
     }
+  }
+
+  /** An API client per token, reused so its delegation token is cached. */
+  getApi(patId: string): AthomApi | undefined {
+    const entry = this.getPatStore().get(patId);
+    if (!entry) return undefined;
+    let api = this.apis.get(patId);
+    if (!api) {
+      api = new AthomApi(entry.token);
+      this.apis.set(patId, api);
+    } else {
+      api.setPersonalAccessToken(entry.token);
+    }
+    return api;
   }
 
   /** Apps of one token: from the last poll, or fetched once if there is none yet (e.g. right after pairing). */
