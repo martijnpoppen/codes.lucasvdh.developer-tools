@@ -26,7 +26,9 @@
       wrapper.appendChild(input);
       wrapper.appendChild(el('span', 'homey-form-checkbox-checkmark'));
       wrapper.appendChild(el('span', 'homey-form-checkbox-text', label));
-      return wrapper;
+      var group = el('div', 'homey-form-group');
+      group.appendChild(wrapper);
+      return group;
     }
 
     function render(accounts, selected) {
@@ -37,11 +39,11 @@
         block.appendChild(el('div', 'account-name', account.name));
         block.appendChild(el('div', 'muted', Homey.__('overview.own_apps')));
 
-        var organizations = el('div', 'organizations');
+        var organizations = el('fieldset', 'homey-form-fieldset organizations');
         if (account.organizations.length === 0) {
           organizations.appendChild(el('div', 'muted', Homey.__('overview.no_organizations')));
         } else {
-          organizations.appendChild(el('div', 'label', Homey.__('overview.organizations')));
+          organizations.appendChild(el('legend', 'homey-form-legend', Homey.__('overview.organizations')));
           account.organizations.forEach(function (organization) {
             var checked = false;
             organizations.appendChild(checkbox('organization', organization.id, organization.name, checked));
@@ -88,8 +90,6 @@
   .intro { margin: 0; }
   .account { padding: 0.75rem 1rem; border: 1px solid #e4e5e7; border-radius: 0.5rem; }
   .account-name { font-weight: 600; }
-  .organizations { margin: 0.5rem 0 0 1.75rem; }
-  .label { font-weight: 600; margin-bottom: 0.25rem; }
+  .organizations { margin: 0.75rem 0 0; padding: 0; border: 0; }
   .muted { color: #8a8d91; font-size: 0.875rem; margin: 0.25rem 0; }
-  .overview-select label.homey-form-checkbox { display: block; margin: 0.25rem 0; }
 </style>
